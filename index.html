@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Scanner Stream and Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Police Scanner Stream and Chat</h1>
+        </header>
+        
+        <section class="audio-controls">
+            <!-- <button id="playButton">Play Stream</button> -->
+            <audio controls id="audioPlayer">
+                <source src="http://localhost:3001/sample.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <!-- Chat Interface -->
+        <section id="chat">
+            <!-- Chat Messages Container -->
+            <div id="messages" class="chat-messages"></div>
+        
+            <!-- Chat Input Area -->
+            <div class="chat-inputs">
+                <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
+                <button id="sendButton">Send</button>
+            </div>
+        </section>
+        
+
+        <!-- Accessibility Controls -->
+        <section class="accessibility-controls">
+            <button id="toggleDarkMode">Toggle Dark Mode</button>
+            <button id="toggleHighContrast">Toggle High Contrast</button>
+            <button id="increaseTextSize">Increase Text Size</button>
+        </section>
+
+        <section id="transcriptsContainer">
+            <h2>Audio Transcription</h2>
+            <button id="transcribeButton">Transcribe Audio</button>
+            <textarea id="transcriptionBox" rows="10" cols="50" readonly></textarea>
+        </section>
+
+        <nav>
+            <button id="prevPageButton">Previous Page</button>
+            <button id="nextPageButton">Next Page</button>
+        </nav>
+
+        <section id="newsAlerts">
+            <h2>News Alerts</h2>
+            <p> 
+                <!-- News Content Here -->
+            </p>
+            <div id="alerts"></div>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

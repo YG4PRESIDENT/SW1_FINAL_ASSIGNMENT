@@ -1,0 +1,47 @@
+**Police Scanner Stream and Chat Microservice**
+
+
+Introduction
+
+Welcome to the Police Scanner Stream and Chat Microservice. This innovative tool enables users to tune into live police scanner feeds and
+ participate in community discussions through an integrated chat feature. Utilizing AssemblyAI's cutting-edge API, the service offers real-time transcription 
+ of the audio stream, making it accessible and convenient.
+
+Getting Started
+
+Prerequisites
+Before you begin, ensure you have the following:
+
+Node.js installed on your machine
+An active API key from AssemblyAI
+Installation
+Follow these steps to get your microservice up and running:
+
+Clone the repository to your local machine.
+Run npm install in the cloned directory to install all necessary dependencies.
+Insert your AssemblyAI API key in the server's configuration file.
+Launch the server with the command node server.js.
+How to Use the Microservice
+Programmatically Requesting Data
+To initiate the audio stream and receive transcriptions, you need to make a GET request to the /start-audio-stream endpoint.
+
+Example Request:
+javascript
+Copy code
+fetch('http://localhost:3000/start-audio-stream')
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+Programmatically Receiving Data
+The microservice sends data to clients in real-time using WebSockets. Follow these steps to connect to the WebSocket server and receive transcription updates.
+
+Example WebSocket Connection:
+javascript
+Copy code
+const socket = io.connect('http://localhost:3000');
+
+socket.on('transcription update', function(data) {
+  console.log('Transcription:', data);
+});
+Conclusion
+This microservice is a powerful tool for anyone interested in real-time police scanner feeds. Whether you're a journalist, researcher, or simply a curious individual, this service offers an easy and interactive way to stay informed.
